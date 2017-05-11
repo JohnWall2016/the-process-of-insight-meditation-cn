@@ -1,0 +1,41 @@
+% -*- coding: utf-8 -*-
+
+\input macros
+
+\titlepage
+\pageno=-3
+\vbox to 6pc{
+\bookmark{1}{目录}
+\centerline{\titlefont 目录}
+\vfill}
+\def\rhead{目录}
+\fourteenpoint
+\begingroup
+\countdef\counter=255
+\def\diamondleaders{\global\advance\counter by 1
+  \ifodd\counter \kern-10pt \fi
+  \leaders\hbox to 20pt{\ifodd\counter \kern13pt \else\kern3pt \fi
+    .\hss}}
+\baselineskip 25pt plus 5pt
+\def\\#1. #2.{\line{\strut%
+          \rm#1\diamondleaders\hfil\hbox to 2em{\hss#2}}}
+\\出版者说明. X.
+\\观禅道次. X.
+\\\indent 何为观禅?. X.
+\null % 17 lines so far to balance the 23 on the other page
+\null % 18
+\null % 19
+\null % 20
+\null % 21
+\null % 22
+\null % 23
+\def\leftheadline{}
+\def\rightheadline{}
+\vfill
+\eject
+\null
+\vfill
+\eject
+\endgroup
+
+\byebye

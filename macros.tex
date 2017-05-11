@@ -1,0 +1,350 @@
+% -*- coding: utf-8 -*-
+
+%% standalone subfiles
+
+\let\byebye = \relax
+\csname loaded\endcsname
+\let\loaded = \endinput
+\let\byebye = \bye
+
+%% macros for The TeXbook
+
+\input manmac
+
+%% compatable with manmac.tex
+
+\catcode `\^=7
+
+%% font definitions
+
+\def\song{SimSun}
+\def\hei{SimHei}
+\def\kai{KaiTi}
+\def\fang{FangSong}
+\def\yuan{YouYuan:embolden=3;extend=0.8}
+%\def\yuan{FZY3JW--GB1-0:embolden=3;extend=0.95}
+%
+\input xeCJK-base
+\xeCJKenablechecksingle
+\normalspacedchars{-}
+%
+\def\letfont{\let\CJKfont}
+\font\zhtenrm="\song" at 10pt
+\let\CJKfont\zhtenrm
+%
+\def\setecfont#1#2#3#4{
+  \expandafter\font\csname en#1\endcsname = #2 at #4pt
+  \expandafter\font\csname zh#1\endcsname = "#3" at #4pt
+  \expandafter\def\csname#1\endcsname{\csname en#1\endcsname\expandafter\letfont\csname zh#1\endcsname}
+}
+
+\setecfont{titlefont}{cmssdc10}{\yuan}{36}
+\setecfont{chapfont}{cmssdc10}{\yuan}{36}
+\setecfont{sectfont}{cmbx14}{\hei}{18}
+%
+\setecfont{fourteenrm}{cmr14}{\song}{14}
+\setecfont{twelverm}{cmr12}{\song}{12}
+\setecfont{elevenrm}{cmr11}{\song}{11}
+\setecfont{tenrm}{cmr10}{\song}{10}
+\setecfont{ninerm}{cmr9}{\song}{9}
+\setecfont{eightrm}{cmr8}{\song}{8}
+\setecfont{sevenrm}{cmr7}{\song}{7}
+\setecfont{sixrm}{cmr6}{\song}{6}
+\setecfont{fiverm}{cmr5}{\song}{5}
+%
+\setecfont{fourteenbf}{cmbx14}{\hei}{14}
+\setecfont{twelvebf}{cmbx12}{\hei}{12}
+\setecfont{elevenbf}{cmbx11}{\hei}{11}
+\setecfont{tenbf}{cmbx10}{\hei}{10}
+\setecfont{ninebf}{cmbx9}{\hei}{9}
+\setecfont{eightbf}{cmbx8}{\hei}{8}
+\setecfont{sevenbf}{cmbx7}{\hei}{7}
+\setecfont{sixbf}{cmbx6}{\hei}{6}
+\setecfont{fivebf}{cmbx5}{\hei}{5}
+%
+\setecfont{fourteentt}{cmtt14}{\fang}{14}
+\setecfont{twelvett}{cmtt12}{\fang}{12}
+\setecfont{eleventt}{cmtt11}{\fang}{11}
+\setecfont{tentt}{cmtt10}{\fang}{10}
+\setecfont{ninett}{cmtt9}{\fang}{9}
+\setecfont{eighttt}{cmtt8}{\fang}{8}
+\setecfont{seventt}{cmtt7}{\fang}{7}
+\setecfont{sixtt}{cmtt6}{\fang}{6}
+\setecfont{fivett}{cmtt5}{\fang}{5}
+%
+\setecfont{fourteensl}{cmsl14}{\kai}{14}
+\setecfont{twelvesl}{cmsl12}{\kai}{12}
+\setecfont{elevensl}{cmsl11}{\kai}{11}
+\setecfont{tensl}{cmsl10}{\kai}{10}
+\setecfont{ninesl}{cmsl9}{\kai}{9}
+\setecfont{eightsl}{cmsl8}{\kai}{8}
+\setecfont{sevensl}{cmsl7}{\kai}{7}
+\setecfont{sixsl}{cmsl6}{\kai}{6}
+\setecfont{fivesl}{cmsl5}{\kai}{5}
+%
+\setecfont{fourteenit}{cmti14}{\kai}{14}
+\setecfont{twelveit}{cmti12}{\kai}{12}
+\setecfont{elevenit}{cmti11}{\kai}{11}
+\setecfont{tenit}{cmti10}{\kai}{10}
+\setecfont{nineit}{cmti9}{\kai}{9}
+\setecfont{eightit}{cmti8}{\kai}{8}
+\setecfont{sevenit}{cmti7}{\kai}{7}
+\setecfont{sixit}{cmti6}{\kai}{6}
+\setecfont{fiveit}{cmti5}{\kai}{5}
+
+\def\ST#1{\font\tempfont="\song" at #1pt\letfont\tempfont}
+\def\HT#1{\font\tempfont="\hei" at #1pt\letfont\tempfont}
+\def\KT#1{\font\tempfont="\kai" at #1pt\letfont\tempfont}
+\def\FS#1{\font\tempfont="\fang" at #1pt\letfont\tempfont}
+\def\YY#1{\font\tempfont="\yuan" at #1pt\letfont\tempfont}
+
+%% some redefinition of manmac.tex
+
+\font\titlefonta=cmssdc10 at 20pt
+
+\font\fourteeni=cmmi14
+\font\fourteensy=cmsy14
+\font\fourteenex=cmex14
+\def\fourteenpoint{\def\rm{\fam0\fourteenrm}%
+  \textfont0=\fourteenrm \scriptfont0=\elevenrm \scriptscriptfont0=\ninerm
+  \textfont1=\fourteeni \scriptfont1=\eleveni \scriptscriptfont1=\ninei
+  \textfont2=\fourteensy \scriptfont2=\elevensy \scriptscriptfont2=\ninesy
+  \textfont3=\fourteenex \scriptfont3=\fourteenex \scriptscriptfont3=\fourteenex
+  \def\it{\fam\itfam\fourteenit}%
+  \textfont\itfam=\fourteenit
+  \def\sl{\fam\slfam\fourteensl}%
+  \textfont\slfam=\fourteensl
+  \def\bf{\fam\bffam\fourteenbf}%
+  \textfont\bffam=\fourteenbf \scriptfont\bffam=\elevenbf
+   \scriptscriptfont\bffam=\ninebf
+  \def\tt{\fam\ttfam\fourteentt}%
+  \textfont\ttfam=\fourteentt
+  \tt \ttglue=.5em plus.25em minus.15em
+  \normalbaselineskip=23pt
+  \def\MF{{\manual META}\-{\manual FONT}}%
+  \let\sc=\elevenrm
+  \let\big=\fourteenbig
+  \setbox\strutbox=\hbox{\vrule height10.5pt depth5.5pt width\z@}%
+  \normalbaselines\rm}
+%
+\font\twelvei=cmmi12
+\font\twelvesy=cmsy12
+\font\twelveex=cmex12
+\def\twelvepoint{\def\rm{\fam0\twelverm}%
+  \textfont0=\twelverm \scriptfont0=\ninerm \scriptscriptfont0=\sevenrm
+  \textfont1=\twelvei \scriptfont1=\ninei \scriptscriptfont1=\seveni
+  \textfont2=\twelvesy \scriptfont2=\ninesy \scriptscriptfont2=\sevensy
+  \textfont3=\twelveex \scriptfont3=\twelveex \scriptscriptfont3=\twelveex
+  \def\it{\fam\itfam\twelveit}%
+  \textfont\itfam=\twelveit
+  \def\sl{\fam\slfam\twelvesl}%
+  \textfont\slfam=\twelvesl
+  \def\bf{\fam\bffam\twelvebf}%
+  \textfont\bffam=\twelvebf \scriptfont\bffam=\ninebf
+   \scriptscriptfont\bffam=\sevenbf
+  \def\tt{\fam\ttfam\twelvett}%
+  \textfont\ttfam=\twelvett
+  \tt \ttglue=.5em plus.25em minus.15em
+  \normalbaselineskip=19pt
+  \def\MF{{\manual META}\-{\manual FONT}}%
+  \let\sc=\ninerm
+  \let\big=\twelvebig
+  \setbox\strutbox=\hbox{\vrule height9.5pt depth4.5pt width\z@}%
+  \normalbaselines\rm}
+%
+\font\eleveni=cmmi11
+\font\elevensy=cmsy11
+\font\elevenex=cmex11
+\def\elevenpoint{\def\rm{\fam0\elevenrm}%
+  \textfont0=\elevenrm \scriptfont0=\eightrm \scriptscriptfont0=\sixrm
+  \textfont1=\eleveni \scriptfont1=\eighti \scriptscriptfont1=\sixi
+  \textfont2=\elevensy \scriptfont2=\eightsy \scriptscriptfont2=\sixsy
+  \textfont3=\elevenex \scriptfont3=\elevenex \scriptscriptfont3=\elevenex
+  \def\it{\fam\itfam\elevenit}%
+  \textfont\itfam=\elevenit
+  \def\sl{\fam\slfam\elevensl}%
+  \textfont\slfam=\elevensl
+  \def\bf{\fam\bffam\elevenbf}%
+  \textfont\bffam=\elevenbf \scriptfont\bffam=\eightbf
+   \scriptscriptfont\bffam=\sixbf
+  \def\tt{\fam\ttfam\eleventt}%
+  \textfont\ttfam=\eleventt
+  \tt \ttglue=.5em plus.25em minus.15em
+  \normalbaselineskip=16pt
+  \def\MF{{\manual META}\-{\manual FONT}}%
+  \let\sc=\eightrm
+  \let\big=\elevenbig
+  \setbox\strutbox=\hbox{\vrule height9pt depth4pt width\z@}%
+  \normalbaselines\rm}
+%
+\def\tenpoint{\def\rm{\fam0\tenrm}%
+  \textfont0=\tenrm \scriptfont0=\sevenrm \scriptscriptfont0=\fiverm
+  \textfont1=\teni \scriptfont1=\seveni \scriptscriptfont1=\fivei
+  \textfont2=\tensy \scriptfont2=\sevensy \scriptscriptfont2=\fivesy
+  \textfont3=\tenex \scriptfont3=\tenex \scriptscriptfont3=\tenex
+  \def\it{\fam\itfam\tenit}%
+  \textfont\itfam=\tenit
+  \def\sl{\fam\slfam\tensl}%
+  \textfont\slfam=\tensl
+  \def\bf{\fam\bffam\tenbf}%
+  \textfont\bffam=\tenbf \scriptfont\bffam=\sevenbf
+   \scriptscriptfont\bffam=\fivebf
+  \def\tt{\fam\ttfam\tentt}%
+  \textfont\ttfam=\tentt
+  \tt \ttglue=.5em plus.25em minus.15em
+  \normalbaselineskip=15pt
+  \def\MF{{\manual META}\-{\manual FONT}}%
+  \let\sc=\eightrm
+  \let\big=\tenbig
+  \setbox\strutbox=\hbox{\vrule height8.5pt depth3.5pt width\z@}%
+  \normalbaselines\rm}
+%
+\def\ninepoint{\def\rm{\fam0\ninerm}%
+  \textfont0=\ninerm \scriptfont0=\sixrm \scriptscriptfont0=\fiverm
+  \textfont1=\ninei \scriptfont1=\sixi \scriptscriptfont1=\fivei
+  \textfont2=\ninesy \scriptfont2=\sixsy \scriptscriptfont2=\fivesy
+  \textfont3=\tenex \scriptfont3=\tenex \scriptscriptfont3=\tenex
+  \def\it{\fam\itfam\nineit}%
+  \textfont\itfam=\nineit
+  \def\sl{\fam\slfam\ninesl}%
+  \textfont\slfam=\ninesl
+  \def\bf{\fam\bffam\ninebf}%
+  \textfont\bffam=\ninebf \scriptfont\bffam=\sixbf
+   \scriptscriptfont\bffam=\fivebf
+  \def\tt{\fam\ttfam\ninett}%
+  \textfont\ttfam=\ninett
+  \tt \ttglue=.5em plus.25em minus.15em
+  \normalbaselineskip=14pt
+  \def\MF{{\manual hijk}\-{\manual lmnj}}%
+  \let\sc=\sevenrm
+  \let\big=\ninebig
+  \setbox\strutbox=\hbox{\vrule height8pt depth3pt width\z@}%
+  \normalbaselines\rm
+  \ST{9}}
+%
+\def\eightpoint{\def\rm{\fam0\eightrm}%
+  \textfont0=\eightrm \scriptfont0=\sixrm \scriptscriptfont0=\fiverm
+  \textfont1=\eighti \scriptfont1=\sixi \scriptscriptfont1=\fivei
+  \textfont2=\eightsy \scriptfont2=\sixsy \scriptscriptfont2=\fivesy
+  \textfont3=\tenex \scriptfont3=\tenex \scriptscriptfont3=\tenex
+  \def\it{\fam\itfam\eightit}%
+  \textfont\itfam=\eightit
+  \def\sl{\fam\slfam\eightsl}%
+  \textfont\slfam=\eightsl
+  \def\bf{\fam\bffam\eightbf}%
+  \textfont\bffam=\eightbf \scriptfont\bffam=\sixbf
+   \scriptscriptfont\bffam=\fivebf
+  \def\tt{\fam\ttfam\eighttt}%
+  \textfont\ttfam=\eighttt
+  \tt \ttglue=.5em plus.25em minus.15em
+  \normalbaselineskip=12pt
+  \def\MF{{\manual opqr}\-{\manual stuq}}%
+  \let\sc=\sixrm
+  \let\big=\eightbig
+  \setbox\strutbox=\hbox{\vrule height7pt depth2pt width\z@}%
+  \normalbaselines\rm}
+
+\def\leftheadline{\hbox to \pagewidth{%
+    \vbox to 10pt{}% strut to position the baseline
+    {\fourteenbf\folio}\hskip10pt\rbook\hfil% folio to left of text
+    %\rhead% running head flush left
+    }}
+\def\rightheadline{\hbox to \pagewidth{%
+    \vbox to 10pt{}% strut to position the baseline
+    %\rhead% running head flush right
+    \hfil\rhead\hskip10pt {\fourteenbf\folio}% folio to right of text
+    }}
+
+\newcount\footnoteno
+\let\oldfootnote=\footnote  
+\def\footnotemy#1{\oldfootnote{}{{\hang\smash{\hbox to 0pt{%
+          \hskip-\hangindent\hskip+0.5pc\the\footnoteno\hfill}}}#1}%
+  \global\advance\footnoteno by 1}
+\def\footnote#1{$\!\!^{\the\footnoteno}${\parindent=1.7pc\footnotemy{#1}}}
+\def\myfootnote#1{$\!\!^{\the\footnoteno}${\parindent=1.7pc\footnotemy{【译注】#1}}}
+\def\myfootnoteaq#1{$\!\!^{\the\footnoteno}${\parindent=1.7pc\footnotemy{【译注】#1}}}
+
+\def\folio{\ifnum\pageno<0 \uppercase\expandafter{\romannumeral-\pageno} \else\number\pageno \fi}
+
+\def\beginchapter#1 \par{\global\exno=0
+  \subsecno=0
+  \footnoteno=1
+  \titlepage
+  \bookmark{1}{#1}
+  \def\MF{{\manual 89:;<=>:}} % slant the logo
+  \xdef\rhead{#1\unskip}
+  {\def\TeX{T\kern-.2em\lower.5ex\hbox{E}\kern-.06em X}
+    \def\MF{{\vbox to30pt{}\manual ()*+,-.*}}
+    \centerline{\titlefont#1}
+    \vskip 4pc
+  } % output the chapter title page
+  \fourteenpoint}
+
+\outer\def\endchapter{\vfill\eject%
+  \ifodd\pageno\else\null\vfill\eject\fi}
+
+\outer\def\subsection#1. {\medbreak\advance\subsecno by 1
+  \bookmark{2}{\the\subsecno. #1}
+  \noindent{\bf \the\subsecno.\enspace#1.\enspace}}
+
+\outer\def\subsectnon#1 \par{\bigbreak
+  \xdef\rhead{#1\unskip}
+  \bookmark{2}{#1}
+  \noindent{\sectfont #1\enspace}\smallbreak}
+
+\def\beginlines{\par\begingroup\baselineskip=12pt\nobreak\medskip\parindent\z@ \obeylines
+  \hrule\kern1pt\nobreak \everypar{\strut}}
+
+\def\pdfdestx#1{%
+  \special{pdf:dest (#1) [@thispage /FitH @ypos]}%
+}
+\def\pdflinkx#1#2{%
+  \special{pdf:bann << /Type/Annot/Subtype/Link  /Border [0 0 0] /A << /S/GoTo/D (#1) >> >>}%
+  \special{pdf:bc [0 0 1]}#2\special{pdf:ec}%
+  \special{pdf:eann}%
+}
+
+\proofmodefalse % this should be false when making camera-ready copy
+
+\def\frac#1/#2{\leavevmode\kern.1em
+  \raise.5ex\hbox{\the\scriptfont0 #1}\kern-.1em
+  /\kern-.15em\lower.25ex\hbox{\the\scriptfont0 #2}}
+
+%% from old bookall.tex
+\baselineskip=18pt
+\lineskip=2pt
+\twelvepoint
+
+\parindent=2.4pc
+
+%% paper dimensions
+
+\hsize=34pc
+\pagewidth=\hsize
+\pdfpagewidth=7.7in \pdfpageheight=10in
+
+%% pdf bookmarks
+
+\def\gbmark#1{\special{pdf: out 1 << /Title <FEFF#1> /Dest [ @thispage /FitH @ypos ] >>}}
+
+\special{pdf: docview << /PageMode /UseOutlines >>}
+\def\bookmark#1#2{%
+  \begingroup%
+  \def\1{}\def\linebreak{}\def\TeX{TeX}\def\noindent{}\def\\{}\def\hfil{}\def\quad{}%
+  \special{pdf:out #1 << /Title (#2) /Dest [ @thispage /FitH @ypos ] >>}%
+  \endgroup%
+}
+
+%% add original page numbers
+
+\newcount\origpageno
+
+\def\strutdepth{\dp\strutbox}
+\def\1{\strut\vadjust{\kern-\strutdepth\pagenotext}%
+  \pdfdestx{page\the\origpageno}\global\advance\origpageno by 1}
+\def\pagenotext{\vtop to \strutdepth{%
+  \baselineskip\strutdepth\vss\llap{\tt[\the\origpageno]\quad}\null}}
+
+%% compatable with manmac.tex
+
+\catcode `\^=13
