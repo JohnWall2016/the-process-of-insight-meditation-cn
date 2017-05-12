@@ -41,6 +41,8 @@
 \setecfont{titlefont}{cmssdc10}{\yuan}{36}
 \setecfont{chapfont}{cmssdc10}{\yuan}{36}
 \setecfont{sectfont}{cmbx14}{\hei}{18}
+\setecfont{ssectfont}{cmbx12}{\hei}{16}
+\setecfont{sssectfont}{cmbx11}{\hei}{15}
 %
 \setecfont{fourteenrm}{cmr14}{\song}{14}
 \setecfont{twelverm}{cmr12}{\song}{12}
@@ -287,10 +289,18 @@
   \bookmark{2}{\the\subsecno. #1}
   \noindent{\bf \the\subsecno.\enspace#1.\enspace}}
 
-\outer\def\subsectnon#1 \par{\bigbreak
+\outer\def\subsectnon#1 \par{\bigbreak\medbreak
   \xdef\rhead{#1\unskip}
   \bookmark{2}{#1}
-  \noindent{\sectfont #1\enspace}\smallbreak}
+  \noindent{\sectfont #1\enspace}\medbreak}
+
+\outer\def\ssubsectnon#1 \par{\medbreak
+  \bookmark{3}{#1}
+  \noindent{\ssectfont #1\enspace}\smallbreak}
+
+\outer\def\sssubsectnon#1 \par{\medbreak
+  \bookmark{4}{#1}
+  {\sssectfont #1\enspace}\smallbreak}
 
 \def\beginlines{\par\begingroup\baselineskip=12pt\nobreak\medskip\parindent\z@ \obeylines
   \hrule\kern1pt\nobreak \everypar{\strut}}
@@ -320,7 +330,7 @@
 %% paper dimensions
 
 \hsize=34pc
-\vsize=46pc
+\vsize=44pc
 \pagewidth=\hsize
 \pageheight=\vsize
 \pdfpagewidth=7.7in \pdfpageheight=10in
