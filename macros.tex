@@ -312,6 +312,16 @@
 \outer\def\sssubsectnonib#1 \par{\medbreak
   \noindent{\sssectfont #1\enspace}\smallbreak}
 
+\outer\def\ssssubsectnonb#1 \par{\medbreak
+  \bookmark{5}{#1}
+  {\sssectfont #1\enspace}\smallbreak}
+
+\outer\def\ssssubsectnonib#1 \par{\medbreak
+  \def\sshid##1{}
+  \bookmark{5}{#1}
+  \def\sshid##1{##1}
+  \noindent{\sssectfont #1\enspace}\smallbreak}
+
 \def\beginlines{\par\begingroup\baselineskip=12pt\nobreak\medskip\parindent\z@ \obeylines
   \hrule\kern1pt\nobreak \everypar{\strut}}
 
