@@ -290,12 +290,12 @@
   \noindent{\bf \the\subsecno.\enspace#1.\enspace}}
 
 \outer\def\subsectnon#1 \par{\bigbreak\medbreak
-  \xdef\rhead{#1\unskip}
+  \def\rhead{\def\1{}#1\unskip}
   \bookmark{2}{#1}
   \noindent{\sectfont #1\enspace}\medbreak}
 
 \outer\def\subsectnontp#1 #2 \par{\bigbreak\medbreak
-  \xdef\rhead{#1\unskip}
+  \def\rhead{\def\1{}#1\unskip}
   \bookmark{2}{#1}
   \noindent{\sectfont #1\enspace}\par%
   \noindent{\KT{18}#2\enspace}\medbreak}
@@ -303,6 +303,11 @@
 \outer\def\ssubsectnon#1 \par{\medbreak
   \bookmark{3}{#1}
   \noindent{\ssectfont #1\enspace}\smallbreak}
+
+\outer\def\ssubsectnontp#1 #2 \par{\medbreak
+  \bookmark{3}{#1}
+  \noindent{\ssectfont #1\enspace}\par%
+  \noindent{\KT{16}#2\enspace}\smallbreak}
 
 \outer\def\sssubsectnon#1 \par{\medbreak
   \bookmark{4}{#1}
