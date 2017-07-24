@@ -301,16 +301,22 @@
   \noindent{\KT{18}#2\enspace}\medbreak}
 
 \outer\def\ssubsectnon#1 \par{\medbreak
+  \def\sshid##1{}
   \bookmark{3}{#1}
+  \def\sshid##1{##1}
   \noindent{\ssectfont #1\enspace}\smallbreak}
 
 \outer\def\ssubsectnontp#1 #2 \par{\medbreak
+  \def\sshid##1{}
   \bookmark{3}{#1}
+  \def\sshid##1{##1}
   \noindent{\ssectfont #1\enspace}\par%
   \noindent{\KT{16}#2\enspace}\smallbreak}
 
 \outer\def\ssubsectnonthp#1 #2 #3\par{\medbreak
+  \def\sshid##1{}
   \bookmark{3}{#1}
+  \def\sshid##1{##1}
   \noindent{\ssectfont #1\enspace}\par%
   \noindent{\KT{16}#2\enspace}\par%
   \noindent{\KT{16}#3\enspace}\smallbreak}
